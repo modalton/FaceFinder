@@ -63,9 +63,9 @@ void overlay(Mat frame)
 	for (size_t i = 0; i < faces.size(); i++)
 	{
 		Point center(faces[i].x + faces[i].width / 2, faces[i].y + faces[i].height / 2);
-		ellipse(frame, center, Size(faces[i].width / 2, faces[i].height / 2), 0, 0, 360, Scalar(255, 0, 255), 4, 8, 0);
+		rectangle(frame, faces[i], Scalar(0, 255, 255), 3, 8, 0);
 		Mat faceROI = frame_gray(faces[i]);
 	}
 	//-- Show what you got
-	imshow("Test", frame);
+	imshow("Webcam Face Detection", frame);
 }
