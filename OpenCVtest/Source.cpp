@@ -2,6 +2,9 @@
 #include "opencv2/videoio.hpp"
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
+#include <opencv2/core/utility.hpp>
+#include <opencv2/video/tracking.hpp>
+#include "tracker.hpp"
 
 #include <iostream>
 #include <stdio.h>
@@ -13,6 +16,7 @@ using namespace cv;
 String face_xml = "C:/Users/Michael Dalton/Desktop/opencv/sources/data/haarcascades/haarcascade_frontalface_alt.xml";
 CascadeClassifier face_cascade;
 void overlay(Mat frame);
+Ptr<Tracker> tracker;
 
 //Program start
 int main(void)
@@ -66,6 +70,6 @@ void overlay(Mat frame)
 		rectangle(frame, faces[i], Scalar(0, 255, 255), 3, 8, 0);
 		Mat faceROI = frame_gray(faces[i]);
 	}
-	//-- Show what you got
-	imshow("Webcam Face Detection", frame);
+	//Display on window
+	imshow("Test", frame);
 }
